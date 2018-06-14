@@ -1,0 +1,9 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  background-color: #293742;
+}
+
+section {
+  padding: 10px;
+}
