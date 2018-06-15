@@ -16,8 +16,7 @@ export function getMainWindowOptions(): Electron.BrowserWindowConstructorOptions
   return {
     width: 800,
     height: 800,
-    minWidth: 500,
-    titleBarStyle: process.platform === 'darwin' ? 'hiddenInset' : undefined
+    minWidth: 500
   };
 }
 
