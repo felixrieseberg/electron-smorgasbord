@@ -5,40 +5,20 @@ module.exports = {
     generateAssets: require('./tools/generateAssets')
   },
   packagerConfig: {
-    name: 'Electron Update Tester',
-    executableName: 'electron-fiddle'
+    name: 'Smorgasbord',
+    executableName: 'Smorgasbord'
   },
   makers: [
     {
       name: "@electron-forge/maker-squirrel",
       platforms: ["win32"],
       config: {
-        name: "electron_fiddle"
+        name: "Smorgasbord"
       }
     },
     {
       name: "@electron-forge/maker-zip",
       platforms: ["darwin"]
-    },
-    {
-      name: "@electron-forge/maker-deb",
-      platforms: ["linux"]
-    },
-    {
-      name: "@electron-forge/maker-rpm",
-      platforms: ["linux"]
-    }
-  ],
-  publishers: [
-    {
-      name: '@electron-forge/publisher-github',
-      config: {
-        repository: {
-          owner: 'electron',
-          name: 'fiddle'
-        },
-        prerelease: true
-      }
     }
   ]
 };
