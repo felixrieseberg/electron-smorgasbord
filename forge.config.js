@@ -13,7 +13,9 @@ module.exports = {
       name: "@electron-forge/maker-squirrel",
       platforms: ["win32"],
       config: {
-        name: "Smorgasbord"
+        name: "Smorgasbord",
+        certificateFile: process.env.WINDOWS_CODESIGN_CERTIFICATE,
+        certificatePassword: process.env.WINDOWS_CODESIGN_PASSWORD
       }
     },
     {

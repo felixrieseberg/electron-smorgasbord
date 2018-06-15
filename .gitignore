@@ -28,6 +28,3 @@ compile_commands.json
 # npm package
 /npm/dist
 /npm/path.txt
-
-# Electron Fiddle-Specific
-/static/contributors.json
