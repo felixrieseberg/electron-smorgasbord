@@ -3,7 +3,7 @@
   "productName": "Smorgasbord",
   "version": "0.1.0",
   "description": "A local update server for Squirrel & Electron",
-  "repository": "https://github.com/felixrieseberg/squirel-smorgasboard",
+  "repository": "https://github.com/felixrieseberg/electron-smorgasbord",
   "main": "./dist/main/main",
   "scripts": {
     "start": "electron-forge start",
@@ -12,7 +12,12 @@
     "publish": "electron-forge publish",
     "lint": "tslint -c tslint.json -p tsconfig.json -e \"node_modules/**/*.ts\""
   },
-  "keywords": [],
+  "keywords": [
+    "Squirrel",
+    "Electron",
+    "update",
+    "autoUpdate"
+  ],
   "author": "Felix Rieseberg <felix@felixrieseberg.com>",
   "license": "MIT",
   "config": {
