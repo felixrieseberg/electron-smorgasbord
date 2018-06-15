@@ -6,4 +6,40 @@ body, html {
 
 section {
   padding: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: calc(100vh - 50px);
+}
+
+.log {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.log pre {
+  margin-top: 0;
+  flex-grow: 1;
+  overflow: scroll;
+}
+
+body *::-webkit-scrollbar,
+html *::-webkit-scrollbar {
+  width: 14px;
+}
+
+body *::-webkit-scrollbar-track,
+html *::-webkit-scrollbar {
+  background: unset;
+}
+
+body *::-webkit-scrollbar-thumb,
+html *::-webkit-scrollbar {
+  background: rgba(255, 255, 255, .4);
+}
+
+body *::-webkit-scrollbar-corner,
+html *::-webkit-scrollbar {
+  background: unset;
 }

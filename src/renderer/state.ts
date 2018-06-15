@@ -8,19 +8,28 @@ import { observable, action } from 'mobx';
  */
 export class AppState {
   @observable public isServerRunning: boolean = false;
+  @observable public isLaunchDialogVisible: boolean = false;
   @observable public fileReleasesContent: string | null = null;
   @observable public fileReleasesPath: string | null = null;
   @observable public serverLog: string = '';
+  @observable public appLog: string = '';
 
   private isListeningToServer = false;
 
   constructor() {
     this.toggleServer = this.toggleServer.bind(this);
-    this.log = this.log.bind(this);
+    this.logServer = this.logServer.bind(this);
+    this.logApp = this.logApp.bind(this);
   }
 
-  @action public log(message: string) {
-    this.serverLog += `${message}\n`;
+  @action public logServer(message: Buffer | string) {
+    if (!message.toString().trim()) return;
+    this.serverLog += `${message.toString().trim()}\n`;
+  }
+
+  @action public logApp(message: Buffer | string) {
+    if (!message.toString().trim()) return;
+    this.appLog += `${message.toString().trim()}\n`;
   }
 
   @action public toggleServer() {
@@ -49,9 +58,13 @@ export class AppState {
     }
   }
 
+  @action public toggleLaunchDialog() {
+    this.isLaunchDialogVisible = !this.isLaunchDialogVisible;
+  }
+
   private attachToServer() {
     this.isListeningToServer = true;
-    window.ElectronUpdateTest.app.server.on('message', this.log);
+    window.ElectronUpdateTest.app.server.on('message', this.logServer);
   }
 }
 

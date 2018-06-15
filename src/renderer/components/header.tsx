@@ -19,11 +19,16 @@ export class Header extends React.Component<HeaderProps, {}> {
   constructor(props: HeaderProps) {
     super(props);
 
+    this.handleLaunchClick = this.handleLaunchClick.bind(this);
     this.handleServerChange = this.handleServerChange.bind(this);
   }
 
   public handleServerChange() {
     this.props.appState.toggleServer();
+  }
+
+  public handleLaunchClick() {
+    this.props.appState.toggleLaunchDialog();
   }
 
   public render() {
@@ -38,6 +43,12 @@ export class Header extends React.Component<HeaderProps, {}> {
         </NavbarGroup>
         <NavbarGroup align={Alignment.RIGHT}>
           <ButtonGroup large={false}>
+            <Button
+              icon='application'
+              onClick={this.handleLaunchClick}
+            >
+              Launch App
+            </Button>
             <Button
               active={isServerRunning}
               icon={serverIcon}

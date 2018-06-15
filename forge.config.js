@@ -5,7 +5,7 @@ module.exports = {
     generateAssets: require('./tools/generateAssets')
   },
   packagerConfig: {
-    name: 'Electron Fiddle',
+    name: 'Electron Update Tester',
     executableName: 'electron-fiddle'
   },
   makers: [

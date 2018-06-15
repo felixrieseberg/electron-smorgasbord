@@ -15,7 +15,8 @@ export const browserWindows: Record<WindowNames, Electron.BrowserWindow | null> 
 export function getMainWindowOptions(): Electron.BrowserWindowConstructorOptions {
   return {
     width: 800,
-    height: 500,
+    height: 800,
+    minWidth: 500,
     titleBarStyle: process.platform === 'darwin' ? 'hiddenInset' : undefined
   };
 }
