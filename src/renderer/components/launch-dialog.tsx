@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { observer } from 'mobx-react';
 import { spawn } from 'child_process';
+import * as path from 'path';
 import { Dialog, Button, Intent, InputGroup, ControlGroup, FormGroup, FileInput } from '@blueprintjs/core';
 
 import { AppState } from '../state';
@@ -49,10 +50,15 @@ export class LaunchDialog extends React.Component<LaunchDialogProps, LaunchDialo
   }
 
   public handleLaunch() {
-    const { additionalVariables, appPath } = this.state;
+    const { additionalVariables } = this.state;
     const { toaster } = window.ElectronUpdateTest.app;
+    let { appPath } = this.state;
 
     if (!appPath) return;
+
+    // Extend the app path to the binary executable if the app bundle is selected
+    if (process.platform === 'darwin' && path.extname(appPath) === '.app')
+      appPath = path.join(appPath, 'Contents', 'MacOS', path.basename(appPath, '.app'));
 
     process.env = { ...originalEnv, ...additionalVariables };
 
